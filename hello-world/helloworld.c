@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 int main() {
-
+    //the print statement to end all print statements
     printf("Hello World!\n");
-    printf("From Bradley.");
-    return 0;
+    return 0;       
 }
