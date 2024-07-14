@@ -2,10 +2,8 @@
 #include <math.h>
 
 void circumferenceCalc();
-void additionCalc();
-void subractionCalc();
-void multiplicationCalc();
-void divisionCalc();
+void basicCalc(int selection);
+void numberSelection(double *num1, double *num2);
 int quitInput();
 
 int main() {
@@ -21,27 +19,13 @@ int main() {
         printf("Your Selection: ");
         scanf("%d", &selection);
 
-        switch (selection) {
-            case 1:
-                additionCalc();
-                break;
-            case 2:
-                subractionCalc();
-                break;
-            case 3:
-                multiplicationCalc();
-                break;
-            case 4:
-                divisionCalc();
-                break;
-            case 5:
-                circumferenceCalc();
-                break;
-            default:
+        if (selection > 0 && selection < 6) {
+            basicCalc(selection);
+        } else {
             printf("The command was not recognized...\n");
             continue;
         }
-            
+        
         if ( quitInput() == 0) {
             printf("Exiting...");
             break;
@@ -54,72 +38,52 @@ int main() {
     return 0;
 }
 
-void additionCalc() {
+void basicCalc(int selection) {
     double num1;
     double num2;
     double result;
 
-    printf("Addition selected... \nEnter the first number: ");
-    scanf("%lf", &num1);
-
-    printf("Great! Now enter the second number: ");
-    scanf("%lf", &num2);
-
-    printf("Calculating...\n");
-    result = num1 + num2;
-
-    printf("%.2lf + %.2lf = %.2lf\n", num1, num2, result);
+    switch (selection) {
+        case 1:
+            printf("Addition selected... \n");
+            numberSelection(&num1, &num2);
+            result = num1 + num2;
+            printf("%.2lf + %.2lf = %.2lf\n", num1, num2, result);
+            break;
+        case 2:
+            printf("Subtraction selected... \n");
+            numberSelection(&num1, &num2);
+            result = num1 - num2;
+            printf("%.2lf - %.2lf = %.2lf\n", num1, num2, result);
+            break;
+        case 3: 
+            printf("Multipication selected... \n");
+            numberSelection(&num1, &num2);
+            result = num1 * num2;
+            printf("%.2lf * %.2lf = %.2lf\n", num1, num2, result);
+            break;
+        case 4: 
+            printf("Division selected... \n");
+            numberSelection(&num1, &num2);
+            result = num1 / num2;
+            printf("%.2lf / %.2lf = %.2lf", num1, num2, result);
+            break;
+        case 5:
+            circumferenceCalc();
+            break;
+        default:
+            printf("An unexpected error occured.\n");
+    };
 }
 
-void subractionCalc() {
-    double num1;
-    double num2;
-    double result;
-
-    printf("Subtraction selected... \nEnter the first number: ");
-    scanf("%lf", &num1);
+void numberSelection(double *num1, double *num2) {
+    printf("Enter the first number: ");
+    scanf("%lf", num1);
 
     printf("Great! Now enter the second number: ");
-    scanf("%lf", &num2);
+    scanf("%lf", num2);
 
     printf("Calculating...\n");
-    result = num1 - num2;
-
-    printf("%.2lf - %.2lf = %.2lf\n", num1, num2, result);
-}
-
-void multiplicationCalc() {
-    double num1;
-    double num2;
-    double result;
-
-    printf("Multiplication selected... \nEnter the first number: ");
-    scanf("%lf", &num1);
-
-    printf("Great! Now enter the second number: ");
-    scanf("%lf", &num2);
-
-    printf("Calculating...\n");
-    result = num1 * num2;
-
-    printf("%.2lf * %.2lf = %.2lf\n", num1, num2, result);
-}
-
-void divisionCalc() {
-    double num1;
-    double num2;
-    double result;
-
-    printf("Division selected... \nEnter the first number: ");
-    scanf("%lf", &num1);
-
-    printf("Great! Now enter the second number: ");
-    scanf("%lf", &num2);
-
-    printf("Calculating...\n");
-    result = num1 / num2;
-
-    printf("%.2lf / %.2lf = %.2lf\n", num1, num2, result);
 }
 
 void circumferenceCalc() {
