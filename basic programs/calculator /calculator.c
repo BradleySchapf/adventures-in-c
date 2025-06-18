@@ -4,6 +4,7 @@
 void circumferenceCalc();
 void basicCalc(int selection);
 void numberSelection(double *num1, double *num2);
+void hypotenuseCalc();
 int quitInput();
 
 int main() {
@@ -16,10 +17,11 @@ int main() {
         printf("Select 3 for Multipication\n");
         printf("Select 4 for Division\n");
         printf("Select 5 for Circle Circumference\n");
+        printf("Select 6 for Hypotenuse Calculation\n");
         printf("Your Selection: ");
         scanf("%d", &selection);
 
-        if (selection > 0 && selection < 6) {
+        if (selection > 0 && selection < 7) {
             basicCalc(selection);
         } else {
             printf("The command was not recognized...\n");
@@ -71,6 +73,9 @@ void basicCalc(int selection) {
         case 5:
             circumferenceCalc();
             break;
+        case 6:
+            hypotenuseCalc();
+            break;
         default:
             printf("An unexpected error occured.\n");
     };
@@ -96,6 +101,22 @@ void circumferenceCalc() {
     printf("calculating...\n");
     circumference = 2 * (M_PI * radius);
     printf("The Circumference is: %lf\n", circumference);
+}
+
+void hypotenuseCalc() {
+    double A;
+    double B;
+    double C;
+
+    printf("enter side A: ");
+    scanf("%lf", &A);
+
+    printf("enter side B: ");
+    scanf("%lf", &B);
+
+    C = sqrt(A * A + B * B);
+
+    printf("Side C: %lf ", C);
 }
 
 int quitInput() {
