@@ -6,6 +6,7 @@ int main() {
     // logical operators:   && (AND) checks if two conditions return true.
     //                      || (OR) checks if atleast one condition returns true.
     //                      !  (NOT) checks if the condition is not true (false).
+    
     int temp = 32;
     bool sunny = false;
 
